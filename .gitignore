@@ -1,0 +1,20 @@
+# Hugo build output
+public/
+resources/
+.hugo_build.lock
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Test artifacts
+/tmp-handbook-*

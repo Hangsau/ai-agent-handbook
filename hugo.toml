@@ -1,0 +1,41 @@
+baseURL = 'https://example.github.io/ai-agent-handbook/'
+defaultContentLanguage = 'zh-tw'
+title = 'AI Agent Handbook'
+theme = 'hugo-book'
+copyright = '© 2026 AI Agent Handbook · CC BY 4.0'
+
+# 允許 inline HTML（Mermaid 需要）
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[markup.tableOfContents]
+  startLevel = 1
+
+[markup.highlight]
+  style = 'base16-snazzy'
+
+# hugo-book 設定
+[params]
+  BookTheme = 'light'                                    # light / dark / auto
+  BookSearch = true                                       # 內建 search (fuse.js)
+  BookSection = 'docs'                                    # sidebar 從 content/docs/ 自動掃描
+  BookRepo = 'https://github.com/example/ai-agent-handbook'
+  BookPortableLinks = 'warning'                          # link 缺失會 warn
+  BookComments = false
+  BookDateFormat = '2006-01-02'
+
+# 主要導覽列（頂部 nav）
+[menu]
+  [[menu.home]]
+    name = 'GitHub'
+    url = 'https://github.com/example/ai-agent-handbook'
+    weight = 10
+
+  [[menu.home]]
+    name = '關於'
+    pageRef = '/about'
+    weight = 5
+
+# robots.txt
+enableRobotsTXT = true
