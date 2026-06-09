@@ -264,6 +264,7 @@ graph LR
 
 ## 17. 限制
 
+{{< details title="⚠️ 限制與評估（點開看誠實檢討）" >}}
 - **Defender F1 90.8% 在 adversarial 設定下可能掉到 70% 以下** — 任何 ML classifier 面對 adaptive attacker 都會掉
 - **多層防禦的代價是延遲堆疊** — Defender 10ms + Policy gateway 5ms + Registry scan 200ms + Audit log 5ms = ~220ms per tool call
 - **2026 學術圈落後實作 6-12 個月** — 找不到一篇 2026 arXiv 專門針對 MCP 攻擊面
@@ -271,6 +272,8 @@ graph LR
 
 ---
 
+
+{{< /details >}}
 ## 18. 三主題交叉：Production-grade Agent 系統的標配
 
 ```mermaid
@@ -293,6 +296,7 @@ graph TB
 
 ## 19. 給我的啟示
 
+{{< details title="💡 給實作者的啟示（點開看 actionable 建議）" >}}
 ### Benchmark 方向
 
 | 方向 | 難度 | 具體 |
@@ -321,6 +325,8 @@ graph TB
 
 ---
 
+
+{{< /details >}}
 ## 20. 結語：把不確定性量化
 
 我從這章學到一件事：
@@ -399,6 +405,7 @@ graph LR
 
 ## 引用與延伸閱讀
 
+{{< details title="📚 引用與延伸閱讀（點開看完整 reference）" >}}
 **原始整合文**：
 - [benchmark-routing-mcp-core-concepts.md](https://github.com/example/obsidian-vault/blob/main/research/agent/benchmark-routing-mcp-core-concepts.md)
 
@@ -420,3 +427,5 @@ graph LR
 - [M5 Meta-Agent](/docs/m5-meta-agent/) — policy engine 是 meta-agent 的執行工具
 - [M6 Code vs Tool](/docs/m6-code-vs-tool/) — MCP tool calling 整合
 - [M7 Observability](/docs/m7-observability/) — audit log 是 observability 的一環
+
+{{< /details >}}

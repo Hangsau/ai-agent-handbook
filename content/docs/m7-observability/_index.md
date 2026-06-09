@@ -178,6 +178,7 @@ openlit.init(otlp_endpoint="http://127.0.0.1:4318")
 
 ## 7. 限制與誠實評估
 
+{{< details title="⚠️ 限制與評估（點開看誠實檢討）" >}}
 | 方案 | 核心限制 |
 |------|---------|
 | **Memoria** | 依賴 MatrixOne（不是主流 DB）；self-governance 矛盾偵測沒有實作細節 |
@@ -187,8 +188,11 @@ openlit.init(otlp_endpoint="http://127.0.0.1:4318")
 
 ---
 
+
+{{< /details >}}
 ## 8. 給我的啟示
 
+{{< details title="💡 給實作者的啟示（點開看 actionable 建議）" >}}
 | 方向 | 難度 | 具體 |
 |------|------|------|
 | **Memoria-style self-governance** | 🟡 Moderate | 每次 `memory_store` 新 fact 前先 query 現有記憶，有衝突就標記 conflict 而非 overwrite |
@@ -203,6 +207,8 @@ openlit.init(otlp_endpoint="http://127.0.0.1:4318")
 
 ---
 
+
+{{< /details >}}
 ## 9. 結語：可觀測性是基礎設施
 
 我從這章學到一件事：
@@ -286,6 +292,7 @@ graph TB
 
 ## 引用與延伸閱讀
 
+{{< details title="📚 引用與延伸閱讀（點開看完整 reference）" >}}
 **原始整合文**：
 - [observability-tracing-core-concepts.md](https://github.com/example/obsidian-vault/blob/main/research/agent/observability-tracing-core-concepts.md)
 
@@ -303,3 +310,5 @@ graph TB
 - [M3 Self-Improvement](/docs/m3-self-improvement/) — trace 是 improvement 的前提
 - [M4 Planning](/docs/m4-planning/) — Primitive Induction 需要 traces
 - [M5 Meta-Agent](/docs/m5-meta-agent/) — failure class 由觀測得來
+
+{{< /details >}}

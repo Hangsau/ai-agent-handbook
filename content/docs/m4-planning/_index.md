@@ -214,6 +214,7 @@ sequenceDiagram
 
 ## 9. 給我的啟示
 
+{{< details title="💡 給實作者的啟示（點開看 actionable 建議）" >}}
 按可實作性排序：
 
 | 方向 | 難度 | 成本 |
@@ -231,6 +232,8 @@ sequenceDiagram
 
 ---
 
+
+{{< /details >}}
 ## 10. 真正瓶頸
 
 > 「沒有 traces 就沒辦法 induction / 沒辦法 identify failure classes」
@@ -307,6 +310,7 @@ Self-Healing 把 reliability 視為 **bounded runtime control problem**：
 
 ## 引用與延伸閱讀
 
+{{< details title="📚 引用與延伸閱讀（點開看完整 reference）" >}}
 **原始整合文**：
 - [agent-planning-core-concepts.md](https://github.com/example/obsidian-vault/blob/main/research/agent/agent-planning-core-concepts.md)
 
@@ -323,3 +327,5 @@ Self-Healing 把 reliability 視為 **bounded runtime control problem**：
 - [M3 Self-Improvement](/docs/m3-self-improvement/) — primitive 怎麼被 refine
 - [M5 Meta-Agent](/docs/m5-meta-agent/) — failure class 由誰判斷
 - [M7 Observability](/docs/m7-observability/) — trace collection 是 primitive induction 的前提
+
+{{< /details >}}

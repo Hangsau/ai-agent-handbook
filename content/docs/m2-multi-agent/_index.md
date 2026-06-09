@@ -266,6 +266,7 @@ Orchestration 和 self-improvement 是兩個獨立的問題，目前社群傾向
 
 ## 9. 對 Hermes 的啟示
 
+{{< details title="💡 給實作者的啟示（點開看 actionable 建議）" >}}
 截至 2026-06-08，Hermes 的 multi-agent 能力現況：
 
 | 缺口 | 優先 | 解法 |
@@ -277,6 +278,8 @@ Orchestration 和 self-improvement 是兩個獨立的問題，目前社群傾向
 
 ---
 
+
+{{< /details >}}
 ## 10. 結語：協作的兩個方向
 
 multi-agent 協作有兩個看似矛盾的方向：
@@ -342,6 +345,7 @@ Hierarchical 只在任務需要**真正的並行 worker** 時才用。
 
 ## 引用與延伸閱讀
 
+{{< details title="📚 引用與延伸閱讀（點開看完整 reference）" >}}
 **原始整合文**：
 - [multi-agent-coordination-core-concepts.md](https://github.com/example/obsidian-vault/blob/main/research/agent/multi-agent-coordination-core-concepts.md)
 
@@ -353,3 +357,5 @@ Hierarchical 只在任務需要**真正的並行 worker** 時才用。
 - [M1 Memory + Context](/docs/m1-memory/) — 共享記憶怎麼運作
 - [M3 Self-Improvement](/docs/m3-self-improvement/) — agent 怎麼自己變強
 - [M5 Meta-Agent](/docs/m5-meta-agent/) — 誰來監督多 agent 系統
+
+{{< /details >}}

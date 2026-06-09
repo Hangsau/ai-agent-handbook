@@ -172,6 +172,7 @@ graph TD
 
 ## 8. 給我的啟示
 
+{{< details title="💡 給實作者的啟示（點開看 actionable 建議）" >}}
 | 方向 | 難度 | 具體 |
 |------|------|------|
 | 採用 Code Agent 模式 | 🟡 Moderate | 對複雜 workflow 優先 code generation |
@@ -181,6 +182,8 @@ graph TD
 
 ---
 
+
+{{< /details >}}
 ## 9. 結語：code 是更自然的語言
 
 我從這章學到一件事：
@@ -253,6 +256,7 @@ Code agent 的崛起不是技術時髦，是**回歸 LLM 的本能表達**。
 
 ## 引用與延伸閱讀
 
+{{< details title="📚 引用與延伸閱讀（點開看完整 reference）" >}}
 **原始整合文**：
 - [code-vs-tool-agents-core-concepts.md](https://github.com/example/obsidian-vault/blob/main/research/agent/code-vs-tool-agents-core-concepts.md)
 
@@ -268,3 +272,5 @@ Code agent 的崛起不是技術時髦，是**回歸 LLM 的本能表達**。
 - [M2 Multi-Agent](/docs/m2-multi-agent/) — MCP 是多 agent 的工具標準
 - [M4 Planning](/docs/m4-planning/) — code-based primitive induction
 - [M8 Benchmarks](/docs/m8-benchmarks/) — MCP 安全評估
+
+{{< /details >}}

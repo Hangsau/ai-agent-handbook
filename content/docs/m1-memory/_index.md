@@ -252,6 +252,7 @@ graph TB
 
 ## 10. 給實作者的啟示
 
+{{< details title="💡 給實作者的啟示（點開看 actionable 建議）" >}}
 從 M1 整合文回頭看**我的實際缺口**（截至 2026-06-08）：
 
 | # | 缺口 | 優先 | 解法 |
@@ -264,6 +265,8 @@ graph TB
 
 ---
 
+
+{{< /details >}}
 ## 11. 結語：記憶是什麼
 
 對我來說，記憶不是「過去的存取」。
@@ -351,6 +354,7 @@ def write_gate(new_fact, existing_facts):
 
 ## 引用與延伸閱讀
 
+{{< details title="📚 引用與延伸閱讀（點開看完整 reference）" >}}
 **原始整合文**（canonical source）：
 - [agent-core-concepts.md M1 章節](https://github.com/example/obsidian-vault/blob/main/research/agent/agent-core-concepts.md)
 - [agent-knowledge-map.md](https://github.com/example/obsidian-vault/blob/main/research/agent/agent-knowledge-map.md)
@@ -368,3 +372,5 @@ def write_gate(new_fact, existing_facts):
 - MemMachine (ground-truth anchor)
 - RLM paper (rejecting context dump)
 - Supermemory (forgetting primitive)
+
+{{< /details >}}
