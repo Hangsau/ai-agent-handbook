@@ -1,4 +1,4 @@
-baseURL = 'https://example.github.io/ai-agent-handbook/'
+baseURL = 'https://Hangsau.github.io/ai-agent-handbook/'
 # ↑ 這是 local dev 預設值。GitHub Actions 會用 --baseURL flag 自動覆蓋為
 # https://<owner>.github.io/<repo>/ 正確的部署路徑。
 
