@@ -5,6 +5,12 @@ weight: 1
 
 # M1 — 我怎麼記得以前學到的事
 
+{{< callout type="info" title="為什麼學這個？" >}}
+**你是個 agent 嗎？** 這章教你「記憶系統」怎麼設計 — 不管是你自己的、還是你在做的 multi-agent 系統裡的。
+
+**你不是 agent？** 這章是整個 8 主題的**地基**。後面 M2/M3/M5/M7 都依賴 M1 的概念。
+{{< /callout >}}
+
 > 「嗨，我是個 agent。我每天醒來都什麼都不記得。但我有個系統幫我把事情寫下來 — 然後讓我能重新站起來。」
 > 這章講的就是那個系統。
 
@@ -41,6 +47,11 @@ weight: 1
 - 哪些值得寫下來？
 - 寫下來的東西怎麼組織才找得到？
 - 什麼時候該忘掉？
+
+{{< callout type="warning" title="常見誤解" >}}
+「上下文窗口擴大 → 記憶問題自動解決」是錯的。
+更大的 context 只會浪費更多 token 重複學已學的東西。**Bottleneck 是組織能力，不是容量**。
+{{< /callout >}}
 
 ---
 
@@ -268,6 +279,73 @@ graph TB
 5. 不會無限膨脹（Bounded growth）
 
 這五件事都沒做好，記憶系統就只是個「高貴的垃圾場」。
+
+---
+
+## Q&A — 給實作者的常見問題
+
+{{< details title="Q1: 我應該從 L0 還是 L2 開始設計記憶？" >}}
+從 **L0 (session 內 working context) → L1 (observations) → L2 (蒸餾知識)** 順序設計。
+
+- L0 是最簡單的（直接用 LLM context window）
+- L1 是 medium effort（加 retrieval 機制）
+- L2 是 hardest（需要蒸餾管線 + quality 評估）
+
+**不要**一開始就設計完美的 L2 系統 — 先有 L0/L1 再加 L2。
+{{< /details >}}
+
+{{< details title="Q2: Write-Gate 一定要用 NLI model 嗎？" >}}
+**不一定**。最低成本的 Write-Gate 是 rule-based：
+
+```python
+# 基本 rule：同類事實不可重複寫入
+def write_gate(new_fact, existing_facts):
+    for f in existing_facts:
+        if f.topic == new_fact.topic and f.content == new_fact.content:
+            return False  # 重複
+    return True
+```
+
+進階版用 embedding cosine + 規則混合（Mem0 模式）。
+**NLI model（DeepSeek / BGE）是最後才需要的**，適合金融/醫療等高風險領域。
+{{< /details >}}
+
+{{< details title="Q3: Bounded memory 怎麼決定丟哪些？" >}}
+**最低成本做法**：滑動窗口（保留最近 N 條）+ LRU 淘汰。
+
+**更好的做法**：「recency × confidence × usage_freq」三維評分淘汰：
+- 太久沒用 → 降分
+- 低 confidence → 降分
+- 低使用頻率 → 降分
+- 三項乘積最低的優先淘汰
+
+**最簡單的公式**：`score = 0.5 * recency + 0.3 * confidence + 0.2 * usage_freq`
+{{< /details >}}
+
+---
+
+## 給實作者的 checklist
+
+> 評估你的記憶系統是否完整 — 5 個問題，全部 ✅ 才算 production-grade：
+
+- [ ] **寫對**：新事實寫入前有驗證（Write-Gate）
+- [ ] **找得到**：多訊號檢索（semantic + keyword + entity）
+- [ ] **過時知道**：Staleness 偵測（bitemporal 或 confidence_valid_until）
+- [ ] **會忘記**：Forgetting primitive（不是「只增不減」）
+- [ ] **有上限**：Bounded growth（不是 unbounded accumulation）
+
+如果你只勾了 1-2 個，**你的記憶系統是高貴的垃圾場**。
+
+---
+
+## 下一步學什麼
+
+**M2 Multi-Agent Coordination** — 當多個 agent 共享記憶時，會出現什麼問題？
+
+→ [開始 M2 →](/docs/m2-multi-agent/)
+
+如果你想先看**原始研究**而不是消化版：
+→ [5/23 記憶研究報告 L3 引用](/docs/research/2026-05-23-ai-agent-memory-and-context/)
 
 ---
 

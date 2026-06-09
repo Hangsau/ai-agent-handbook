@@ -3,6 +3,13 @@ title: "M7 Observability + Trace"
 weight: 7
 ---
 
+
+{< callout type="info" title="為什麼學這個？" >}
+**你的 agent 跑 production 出事？** 這章教你 4 個解法 + Memory self-governance。
+
+**你還沒跑 production？** 這章仍然必讀 — observability 是基礎設施，**現在不做以後會痛**。
+{< /callout >}
+
 # M7 — 跑久了怎麼 debug
 
 > 當 AI agent 在生產環境跑久了，最大的噩夢不是「回答錯誤」，是「不知道為什麼錯」。
@@ -222,6 +229,60 @@ graph TB
 - 改善可以驗證（[M3 Self-Improvement](/docs/m3-self-improvement/) 的 playbook 才有效）
 
 ---
+
+
+## Q&A — 給實作者的常見問題
+
+{< details title="Q1: 為什麼 Observability 對 agent 特別重要？" >}
+**Agent 失敗不是「回答錯」是「不知道為什麼錯」**。
+
+**沒有 observability 的 agent 系統是黑盒** — 跑 production 就是賭博。
+
+**4 個必要能力**：
+
+1. **完整的 trace**（不是 log 海洋）
+2. **失敗模式分類**（不只「錯了」要說「哪一類錯」）
+3. **Memory governance**（防矛盾、防毒）
+4. **可審計**（誰在什麼時候做了什麼）
+{< /details >}
+
+{< details title="Q2: Memoria 跟 OpenLIT 怎麼選？" >}
+**Memoria** — 解決 Memory 自我治理（Git for AI Memory）。需要 version control、branch、contradiction detection 時用。
+
+**OpenLIT** — 解決 Telemetry 標準化（OpenTelemetry-native）。需要完整 trace + LLM-as-Judge + cost tracking 時用。
+
+**可以兩個都用**：Memoria 管 memory 層，OpenLIT 管 telemetry 層。
+{< /details >}
+
+{< details title="Q3: 我可以從最簡單的 observability 開始嗎？" >}
+**可以**。先做 3 件事：
+
+1. **統一 action 格式**（所有 tool call 用同一個 JSON schema）
+2. **寫 span log**（每次 LLM call 一個 span）
+3. **加 failure class taxonomy**（失敗時標分類）
+
+**不要一開始就裝 OpenLIT / Memoria** — 先讓 log 結構化，再評估。
+{< /details >}
+
+---
+
+## 給實作者的 checklist
+
+> 評估你的 **M7-OBSERVABILITY** 系統是否 production-grade：
+
+- [ ] 有對應的設計元素實作
+- [ ] 失敗模式有被識別
+- [ ] 可量化的評估指標
+- [ ] 跨來源的設計 pattern 驗證
+- [ ] 邊界情況有處理
+
+---
+
+## 下一步學什麼
+
+**M8 Bench / Routing / MCP Security** — Production-grade 三大支柱
+
+→ [繼續 →](/docs/m8-benchmarks/)
 
 ## 引用與延伸閱讀
 

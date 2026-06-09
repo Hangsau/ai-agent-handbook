@@ -1,44 +1,91 @@
 baseURL = 'https://Hangsau.github.io/ai-agent-handbook/'
-# ↑ 這是 local dev 預設值。GitHub Actions 會用 --baseURL flag 自動覆蓋為
-# https://<owner>.github.io/<repo>/ 正確的部署路徑。
-
 defaultContentLanguage = 'zh-tw'
 title = 'AI Agent Handbook'
-theme = 'hugo-book'
+theme = 'hextra'
 copyright = '© 2026 AI Agent Handbook · CC BY 4.0'
 
-# 允許 inline HTML（Mermaid 需要）
-[markup]
-  [markup.goldmark.renderer]
-    unsafe = true
+# Hextra 推薦
+enableRobotsTXT = true
+hasCJKLanguage = true
 
-[markup.tableOfContents]
-  startLevel = 1
+# Markdown rendering（Hextra 預設）
+[markup]
+  [markup.goldmark]
+    renderer.unsafe = true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]
 
 [markup.highlight]
-  style = 'base16-snazzy'
+  noClasses = false
 
-# hugo-book 設定
+enableInlineShortcodes = true
+
+# 模組（hugo 0.146+ 必要）
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.146.0"
+
+# 導覽列
+[[menu.main]]
+  name = 'GitHub'
+  url = 'https://github.com/Hangsau/ai-agent-handbook'
+  weight = 10
+
+[[menu.main]]
+  name = '開始閱讀'
+  pageRef = '/docs'
+  weight = 1
+
+[[menu.main]]
+  name = '學習路徑'
+  pageRef = '/learning-path'
+  weight = 2
+
+# Hextra params
 [params]
-  BookTheme = 'light'                                    # light / dark / auto
-  BookSearch = true                                       # 內建 search (fuse.js)
-  BookSection = 'docs'                                    # sidebar 從 content/docs/ 自動掃描
-  BookRepo = 'https://github.com/example/ai-agent-handbook'
-  BookPortableLinks = 'warning'                          # link 缺失會 warn
-  BookComments = false
-  BookDateFormat = '2006-01-02'
+  description = 'AI agent 領域的 2026 H1 全景教學網站，用 AI agent 第一人稱視角講自己的故事。'
+  externalLinkDecoration = true
 
-# 主要導覽列（頂部 nav）
-[menu]
-  [[menu.home]]
-    name = 'GitHub'
-    url = 'https://github.com/example/ai-agent-handbook'
-    weight = 10
+  # 主題（light / dark / system）
+  [params.theme]
+    default = 'system'
+    displayToggle = true
 
-  [[menu.home]]
-    name = '關於'
-    pageRef = '/about'
-    weight = 5
+  # 導覽列
+  [params.navbar]
+    displayTitle = true
+    displayLogo = false
+    width = 'wide'
 
-# robots.txt
-enableRobotsTXT = true
+  # footer
+  [params.footer]
+    enable = true
+    displayCopyright = true
+    displayPoweredBy = true
+    width = 'normal'
+
+  # Search
+  [params.search]
+    enable = true
+    type = 'flexsearch'
+    [params.search.flexsearch]
+      index = 'content'
+      tokenize = 'forward'
+
+  # 頁面設定
+  [params.page]
+    width = 'normal'
+    [params.page.contextMenu]
+      enable = true
+      links = []
+
+  [params.toc]
+    displayTags = true
+
+displayUpdatedDate = true
+dateFormat = "2006-01-02"

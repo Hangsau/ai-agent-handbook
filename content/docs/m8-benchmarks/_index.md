@@ -3,6 +3,13 @@ title: "M8 Benchmarks + Routing + MCP"
 weight: 8
 ---
 
+
+{< callout type="info" title="為什麼學這個？" >}
+**你在 production agent 系統？** 這章**必讀**。
+
+**3 個核心問題**：誰好？誰便宜？誰安全？這章用 3 個 sub-topic 全回答。
+{< /callout >}
+
 # M8 — 誰好？誰便宜？誰安全？
 
 > 三個表面獨立、主題內在高度相關的題目。
@@ -335,6 +342,60 @@ graph LR
 ```
 
 ---
+
+
+## Q&A — 給實作者的常見問題
+
+{< details title="Q1: 為什麼 SWE-bench 79.2% 不算解決 agent 問題？" >}
+**SABER 論文證明**：benchmark ceiling 是 artifact，不是 model ceiling。
+
+**三個深層問題**：
+
+1. **Benchmark ceiling 是 artifact**（用 Verified 修正後分數會掉）
+2. **Cost-vs-score 曲線無人繪**（leaderboard 只列分數不看成本）
+3. **「嘗試次數」遊戲**（single-attack vs multi-attack 是 apples-to-oranges）
+{< /details >}
+
+{< details title="Q2: 沒有 verifier 就不要做 cascade 對嗎？" >}
+**對，這是 2026 routing 最重要的警告**。
+
+**為什麼**：cheap model「自信錯了」是最危險的 — 它把 hallucination 包裝成 high confidence，**比直接用 frontier 更難 debug**。
+
+**自做 cascade 必要條件**：self-verifier（cheap model 也回 confidence）。
+{< /details >}
+
+{< details title="Q3: MCP 從 tool bus 變 policy-enforced tool fabric 是什麼意思？" >}
+**範式轉移**：
+
+- 以前：「我能接什麼」=「tool list」
+- 現在：「我**應該**讓 LLM 看到什麼」=「policy gate」
+
+**3 層防禦**：
+
+1. **L1 Tool-list filter** — 危險 tool 不給 LLM 看
+2. **L2 Call-time policy** — 高風險 tool 需使用者確認
+3. **L3 Output sanitizer** — 防 indirect prompt injection
+{< /details >}
+
+---
+
+## 給實作者的 checklist
+
+> 評估你的 **M8-BENCHMARKS** 系統是否 production-grade：
+
+- [ ] 有對應的設計元素實作
+- [ ] 失敗模式有被識別
+- [ ] 可量化的評估指標
+- [ ] 跨來源的設計 pattern 驗證
+- [ ] 邊界情況有處理
+
+---
+
+## 下一步學什麼
+
+回到學習路徑，看下一步方向
+
+→ [繼續 →](/learning-path/)
 
 ## 引用與延伸閱讀
 

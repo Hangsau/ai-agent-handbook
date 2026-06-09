@@ -3,6 +3,13 @@ title: "M3 Self-Improvement"
 weight: 3
 ---
 
+
+{< callout type="info" title="為什麼學這個？" >}
+**你的 agent 怎麼變強？** 這章教你 4 個自我改善軸向 + Governance 四層模型。
+
+**你沒想過 agent 可以自己變強？** 這章會顛覆你 — ACE playbook + Dream cycle + Reflexion 讓 agent 不用 retrain 就能改進。
+{< /callout >}
+
 # M3 — 我怎麼從失敗裡學到東西
 
 > 「如何在不依賴梯度更新的情況下，讓 LLM agent 從實踐經驗中持續變強？」
@@ -266,6 +273,58 @@ flowchart LR
 > **沒有 governance 就改善 = 在懸崖邊練跑**
 
 ---
+
+
+## Q&A — 給實作者的常見問題
+
+{< details title="Q1: Self-improvement 不就是 fine-tuning 嗎？" >}
+**不是**。Self-improvement 改的是**操作層**（context、playbook、memory），**不改模型權重**。
+
+ACE 論文證明：純 context engineering 在 AppWorld benchmark 上能達到有意義提升。
+
+**好處**：成本低、不過擬合、不需要 retrain infra。
+{< /details >}
+
+{< details title="Q2: 沒有 feedback signal 怎麼改善？" >}
+**這是 self-improvement 的最大盲點**。
+
+三個 fallback：
+
+1. **self-consistency check**（同一 prompt 跑 N 次取 consensus）
+2. **user 互動當 feedback**（每次 task 完成問 3 個問題）
+3. **L2 Eval 框架**（用強 model 評弱 model 的 output）
+{< /details >}
+
+{< details title="Q3: 怎麼防止 self-improvement 失控？" >}
+**Governance 四層模型**（Deep-Claw 啟發）：
+
+- M1 低風險調參：agent 自動執行
+- M2 中等變更：需文檔化假設
+- M3 結構性變更：需同行 review
+- M4 安全邊界：**必須人類審批**
+
+沒有 governance，self-improvement = self-destruction。
+{< /details >}
+
+---
+
+## 給實作者的 checklist
+
+> 評估你的 **M3-SELF-IMPROVEMENT** 系統是否 production-grade：
+
+- [ ] 有對應的設計元素實作
+- [ ] 失敗模式有被識別
+- [ ] 可量化的評估指標
+- [ ] 跨來源的設計 pattern 驗證
+- [ ] 邊界情況有處理
+
+---
+
+## 下一步學什麼
+
+**M4 Agent Planning** — ReAct 過時了嗎？2026 規劃架構如何 scale？
+
+→ [繼續 →](/docs/m4-planning/)
 
 ## 引用與延伸閱讀
 
