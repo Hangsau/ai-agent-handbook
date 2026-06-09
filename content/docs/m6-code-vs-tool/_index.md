@@ -4,11 +4,11 @@ weight: 6
 ---
 
 
-{< callout type="info" title="為什麼學這個？" >}
+{{< callout type="info" title="為什麼學這個？" >}}
 **你的 agent 在做簡單工作？** 用 Tool-Based (JSON) 就好。
 
 **你的 agent 在做多步組合、context 敏感？** 換到 Code Agent。
-{< /callout >}
+{{< /callout >}}
 
 # M6 — 我用 JSON 還是用 code 行動
 
@@ -197,7 +197,7 @@ Code agent 的崛起不是技術時髦，是**回歸 LLM 的本能表達**。
 
 ## Q&A — 給實作者的常見問題
 
-{< details title="Q1: 為什麼 Code Agent 興起？" >}
+{{< details title="Q1: 為什麼 Code Agent 興起？" >}}
 **LLM 對 code 比 JSON 更自然** — 它受過的訓練中 code 比 JSON 多幾個數量級。
 
 **2026 主流**：smolagents（27.5K stars, 1K 行核心邏輯）、LangChain code mode。
@@ -207,9 +207,9 @@ Code agent 的崛起不是技術時髦，是**回歸 LLM 的本能表達**。
 - 可一次組合多步（`search(); if result: analyze(); else: fallback()`）
 - 結果可變數（context 效率高）
 - 容易除錯（print/inspect/version control）
-{< /details >}
+{{< /details >}}
 
-{< details title="Q2: Code Agent 一定要 sandbox 嗎？" >}
+{{< details title="Q2: Code Agent 一定要 sandbox 嗎？" >}}
 **對，這是必要代價**。
 
 推薦 sandbox：
@@ -219,9 +219,9 @@ Code agent 的崛起不是技術時髦，是**回歸 LLM 的本能表達**。
 - **Docker**（本地、控制力強）
 
 **不要**讓 code agent 直接在主機跑 — security 風險太高。
-{< /details >}
+{{< /details >}}
 
-{< details title="Q3: MCP 是什麼？" >}
+{{< details title="Q3: MCP 是什麼？" >}}
 **Model Context Protocol** — tool calling 通用協議（2025 崛起）。
 
 **解決**：tool 發現的「大一統介面」— 不再每個 framework 各自定義 tool schema。
@@ -229,7 +229,7 @@ Code agent 的崛起不是技術時髦，是**回歸 LLM 的本能表達**。
 **MCP 解決「工具發現」，不解決 orchestration**（那是 M2 的主題）。
 
 **生態**：Chrome MCP (11.7K)、Playwright MCP (5.5K)、XcodeBuildMCP (5.8K)。
-{< /details >}
+{{< /details >}}
 
 ---
 

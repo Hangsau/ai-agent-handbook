@@ -4,11 +4,11 @@ weight: 7
 ---
 
 
-{< callout type="info" title="為什麼學這個？" >}
+{{< callout type="info" title="為什麼學這個？" >}}
 **你的 agent 跑 production 出事？** 這章教你 4 個解法 + Memory self-governance。
 
 **你還沒跑 production？** 這章仍然必讀 — observability 是基礎設施，**現在不做以後會痛**。
-{< /callout >}
+{{< /callout >}}
 
 # M7 — 跑久了怎麼 debug
 
@@ -233,7 +233,7 @@ graph TB
 
 ## Q&A — 給實作者的常見問題
 
-{< details title="Q1: 為什麼 Observability 對 agent 特別重要？" >}
+{{< details title="Q1: 為什麼 Observability 對 agent 特別重要？" >}}
 **Agent 失敗不是「回答錯」是「不知道為什麼錯」**。
 
 **沒有 observability 的 agent 系統是黑盒** — 跑 production 就是賭博。
@@ -244,17 +244,17 @@ graph TB
 2. **失敗模式分類**（不只「錯了」要說「哪一類錯」）
 3. **Memory governance**（防矛盾、防毒）
 4. **可審計**（誰在什麼時候做了什麼）
-{< /details >}
+{{< /details >}}
 
-{< details title="Q2: Memoria 跟 OpenLIT 怎麼選？" >}
+{{< details title="Q2: Memoria 跟 OpenLIT 怎麼選？" >}}
 **Memoria** — 解決 Memory 自我治理（Git for AI Memory）。需要 version control、branch、contradiction detection 時用。
 
 **OpenLIT** — 解決 Telemetry 標準化（OpenTelemetry-native）。需要完整 trace + LLM-as-Judge + cost tracking 時用。
 
 **可以兩個都用**：Memoria 管 memory 層，OpenLIT 管 telemetry 層。
-{< /details >}
+{{< /details >}}
 
-{< details title="Q3: 我可以從最簡單的 observability 開始嗎？" >}
+{{< details title="Q3: 我可以從最簡單的 observability 開始嗎？" >}}
 **可以**。先做 3 件事：
 
 1. **統一 action 格式**（所有 tool call 用同一個 JSON schema）
@@ -262,7 +262,7 @@ graph TB
 3. **加 failure class taxonomy**（失敗時標分類）
 
 **不要一開始就裝 OpenLIT / Memoria** — 先讓 log 結構化，再評估。
-{< /details >}
+{{< /details >}}
 
 ---
 

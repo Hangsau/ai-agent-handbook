@@ -4,11 +4,11 @@ weight: 4
 ---
 
 
-{< callout type="info" title="為什麼學這個？" >}
+{{< callout type="info" title="為什麼學這個？" >}}
 **你的 agent 在做 5 步以下的簡單任務？** 這章可以跳過。
 
 **你的 agent 在做 100 步 + 數百工具的複雜任務？** 這章是必讀。
-{< /callout >}
+{{< /callout >}}
 
 # M4 — 規劃在 2026 年怎麼 scale
 
@@ -254,13 +254,13 @@ ReAct 想到太多廢的事。Primitive Induction 把高頻套路凝固。Self-H
 
 ## Q&A — 給實作者的常見問題
 
-{< details title="Q1: ReAct 是不是過時了？" >}
+{{< details title="Q1: ReAct 是不是過時了？" >}}
 **不是**。對短任務（≤5 步、≤10 工具）ReAct 仍是最簡單且可維護的方案。
 
 **過時的時機**：當工具庫長大到 100+、任務 horizon 20+ 步、debug 變噩夢 — 這時升級到 Graph Planning / Self-Healing。
-{< /details >}
+{{< /details >}}
 
-{< details title="Q2: Self-Healing 跟 ReAct 的差別？" >}
+{{< details title="Q2: Self-Healing 跟 ReAct 的差別？" >}}
 Self-Healing 把 reliability 視為 **bounded runtime control problem**：
 
 - 觀測 failure signals（timeout、malformed args、stale context）
@@ -270,9 +270,9 @@ Self-Healing 把 reliability 視為 **bounded runtime control problem**：
 
 **benchmark 數字**：98.8% success rate vs retry-only 94.5%。
 **silent failure 從 22% 降到 0%** — 這是最大價值。
-{< /details >}
+{{< /details >}}
 
-{< details title="Q3: 怎麼開始做 Primitive Induction？" >}
+{{< details title="Q3: 怎麼開始做 Primitive Induction？" >}}
 **最對單人開發者友善的方案**。
 
 4 步：
@@ -283,7 +283,7 @@ Self-Healing 把 reliability 視為 **bounded runtime control problem**：
 4. TaskAgent 下次接任務時先看 primitive library
 
 **幾小時可完成**。
-{< /details >}
+{{< /details >}}
 
 ---
 

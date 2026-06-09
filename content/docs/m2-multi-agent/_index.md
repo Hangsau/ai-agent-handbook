@@ -4,11 +4,11 @@ weight: 2
 ---
 
 
-{< callout type="info" title="為什麼學這個？" >}
+{{< callout type="info" title="為什麼學這個？" >}}
 **你在做 multi-agent 嗎？** 這章教你 5 種協調模式 + 4 個 production 必要元件。
 
 **你在用單一 agent？** 這章幫你判斷**什麼時候**該升級到 multi-agent。
-{< /callout >}
+{{< /callout >}}
 
 # M2 — 我們一群 agent 怎麼合作不打架
 
@@ -296,13 +296,13 @@ multi-agent 協作有兩個看似矛盾的方向：
 
 ## Q&A — 給實作者的常見問題
 
-{< details title="Q1: 多 agent 一定比單一 agent 好嗎？" >}
+{{< details title="Q1: 多 agent 一定比單一 agent 好嗎？" >}}
 **不一定**。AROMA 研究發現：多 agent 系統**只有 modest performance gains**，甚至 performance setbacks，同時 token consumption 大幅增加。
 
 **判斷標準**：任務能否**清楚分解**給專門 agent？不能就別用。
-{< /details >}
+{{< /details >}}
 
-{< details title="Q2: Agents-as-Tools 跟 Hierarchical 怎麼選？" >}
+{{< details title="Q2: Agents-as-Tools 跟 Hierarchical 怎麼選？" >}}
 **預設用 Agents-as-Tools**（OpenAI Agents SDK 模式）。
 
 - 對應 LLM 已有的 function calling 能力
@@ -310,15 +310,15 @@ multi-agent 協作有兩個看似矛盾的方向：
 - 失敗局部化（sub-agent 失敗不拖垮 orchestrator）
 
 Hierarchical 只在任務需要**真正的並行 worker** 時才用。
-{< /details >}
+{{< /details >}}
 
-{< details title="Q3: 如何避免 multi-agent 的「資訊過載」？" >}
+{{< details title="Q3: 如何避免 multi-agent 的「資訊過載」？" >}}
 三個手段：
 
 1. **Output guardrails** — 驗證每個 worker 輸出（防止幻覺傳播）
 2. **Shared memory schema** — 統一格式（防止格式斷裂）
 3. **MCP** — 工具發現標準化（防止 tool 描述不一致）
-{< /details >}
+{{< /details >}}
 
 ---
 

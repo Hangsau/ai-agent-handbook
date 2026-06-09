@@ -4,7 +4,7 @@ weight: 5
 ---
 
 
-{< callout type="info" title="為什麼學這個？" >}
+{{< callout type="info" title="為什麼學這個？" >}}
 **你的 multi-agent 系統需要 supervisor 嗎？** 這章教你 5 種監督架構。
 
 **什麼時候需要 supervisor？**
@@ -12,7 +12,7 @@ weight: 5
 - Worker agent 開始幻覺
 - 失敗率 5-20% 不可忽略
 - 沒有結構化的失敗偵測機制
-{< /callout >}
+{{< /callout >}}
 
 # M5 — 誰來監督我
 
@@ -240,7 +240,7 @@ graph TB
 
 ## Q&A — 給實作者的常見問題
 
-{< details title="Q1: Supervisor 不就是另一個 agent，也會失敗嗎？" >}
+{{< details title="Q1: Supervisor 不就是另一個 agent，也會失敗嗎？" >}}
 **對**。CUHK MAS-Resilience 指出：supervisor 本身（Inspector / Challenger）**也是 LLM agent，可能被同樣手法欺騙**。
 
 **解法**：
@@ -248,9 +248,9 @@ graph TB
 - 監督多層（不是單一 supervisor）
 - 監督分工（active / passive core-agent）
 - 最高層永遠是人類
-{< /details >}
+{{< /details >}}
 
-{< details title="Q2: 怎麼選監督架構？" >}
+{{< details title="Q2: 怎麼選監督架構？" >}}
 **任務分解為主 → Hierarchical（OODA 指揮官）**
 
 **需要動態重構 → Self-Evolving Meta-Agent（SEMAF）**
@@ -260,9 +260,9 @@ graph TB
 **成本敏感、動態調整 → Adaptive Coordination（AROMA）**
 
 **大量異質 agent/tool → Agent-as-a-Graph**
-{< /details >}
+{{< /details >}}
 
-{< details title="Q3: 我可以從哪個最簡單的監督開始？" >}
+{{< details title="Q3: 我可以從哪個最簡單的監督開始？" >}}
 **加入 `supervisor_check` 步驟**到 batch runner — 每 N 個任務後讓 supervisor 審視結果。
 
 用 **DeepSeek** 做 supervisor（成本低）。
@@ -270,7 +270,7 @@ graph TB
 playbook 加「supervisor 標記為 failure → 降級到 single-agent 模式」邏輯。
 
 **先做這個，再考慮 SEMAF / AROMA**。
-{< /details >}
+{{< /details >}}
 
 ---
 
