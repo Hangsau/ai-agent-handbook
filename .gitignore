@@ -19,5 +19,4 @@ Thumbs.db
 # Test artifacts
 /tmp-handbook-*
 
-# GitHub Actions workflow (PAT 沒 workflow scope 暫時排除，user 升級 token 後拿掉)
-.github/workflows/
+# (workflow 之前因為 PAT 缺 scope 被排除，2026-06-09 升級 token 後已加回)
