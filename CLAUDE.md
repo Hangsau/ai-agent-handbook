@@ -61,6 +61,92 @@ L4 時序層        — 2026 H1 AI agent 領域全景
 
 ---
 
+## Phase 4 改造計畫（pending 流量補充）
+
+### 2026-06-09 使用者反饋
+
+完成 Phase 1+2 後，使用者對現狀不滿意：
+
+> 「**很單調 沒有設計過的感覺**」
+> 「**點進去就像在看文章 其實 這樣讀起來 不好讀**」
+> 「**可以去研究一下 怎麼做網站 比較好**」
+> 「**不然 這樣只是換一個形式的 repo 裡面的 .md 檔案而已**」
+
+### 設計意圖（user 給的）
+
+> 「**用概念來分類 大項-小項-小項展開 之類的方式 這樣不會一次讀到很多文字**」
+
+核心設計準則：
+
+1. **層次式（hierarchical）導覽**：大項 → 小項 → 細項，**不**一次攤開所有內容
+2. **預設摺疊**：每個章節預設只顯示核心概念；展開才看到細節、引用、code
+3. **視覺化卡片**：8 個 M 主題用卡片網格呈現（不是 sidebar 文字清單）
+4. **不要「文章流」**：避免長段落，要 break into 小單位
+
+### 對應的設計原語
+
+| 設計元素 | Hugo 實作 | 用途 |
+|---------|----------|------|
+| **Accordion** | Hextra theme 原生 | 預設摺疊、點擊展開細節 |
+| **Cards** 卡片網格 | Hextra 原生 | 首頁 8 主題視覺化入口 |
+| **Steps** 步驟 | Hextra 原生 | 「為什麼學這個」→ 「核心概念」→ 「實作」三步 |
+| **Callout** | Hextra 原生 | 「陷阱」「重要」「給實作者」分眾標示 |
+| **Tabs** | Hextra 原生 | 同概念多視角並列（不同角色看不同重點）|
+
+### 候選方案
+
+**方案 A — 換 Hextra theme（推薦）**：
+- 加 `imfing/hextra` 為 submodule
+- 改 hugo.toml 主題設定
+- 內容 markdown 不變（hugo 內容相容）
+- 改 frontmatter 結構（hugo-book 的 weight 換成 order）
+- 工時：1-2 天
+- 風險：medium（theme migrate 有 learning curve）
+
+**方案 B — 保留 hugo-book + 深度 CSS 客製**：
+- 寫自訂 CSS override hugo-book
+- 加 HTML shortcodes 模擬 callout/cards
+- 工時：2-3 天
+- 風險：high（容易撞牆、視覺不一致）
+
+**方案 C — 完全 redesign 互動教學平台**：
+- 加 React/Vue island
+- 學習路徑追蹤、quiz、進度條
+- 工時：5+ 天
+- 風險：over-engineering
+
+### 為什麼現在不做
+
+- **流量限制**：2026-06-09 22:10 user 表示流量快用完，要求先省著用、做好交接單
+- **決策**：完成交接單 + HANDOVER 記錄，**等 user 補流量後再說「繼續」**
+
+### Phase 4 重啟 checklist
+
+當 user 說「繼續 Phase 4 改造」時：
+
+1. 重新讀本節確認設計意圖
+2. 確認選方案（A/B/C）— 預設 A
+3. 估計當前 token / 流量存量是否足夠
+4. 開始實作：
+   - [ ] 加 Hextra submodule
+   - [ ] 改 hugo.toml
+   - [ ] Migrate 內容 frontmatter
+   - [ ] Redesign 首頁為教學 hub（依身份路徑）
+   - [ ] 為每個 M 加 callout、Q&A、next steps
+   - [ ] 加學習路徑視覺化
+   - [ ] Dark mode 校調
+   - [ ] hugo build + screenshot 驗證
+   - [ ] push main → Actions 自動 deploy
+5. 完成後刪除本節「為什麼現在不做」子節
+
+### 已拒絕的設計
+
+- ❌ 純長文章流（不教學）
+- ❌ 純 sidebar 文字清單（單調）
+- ❌ 純 markdown 鏡像 Obsidian（無消化價值）
+
+---
+
 ## 內容 / 資料來源（canonical source）
 
 | 原料 | 路徑 | 角色 |
