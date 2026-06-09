@@ -1,0 +1,57 @@
+{{/*
+  Custom footer — 完全覆蓋 hextra 預設
+  不顯示任何 hextra 標記，顯示自己的品牌 + 設計語言
+*/}}
+
+<footer class="handbook-footer hx:bg-gradient-to-br hx:from-slate-50 hx:to-blue-50 hx:dark:from-neutral-900 hx:dark:to-slate-900 hx:py-12 hx:mt-16 hx:border-t hx:border-slate-200 hx:dark:border-slate-800">
+  <div class="handbook-footer-inner hx:max-w-4xl hx:mx-auto hx:px-6">
+
+    <!-- 品牌 -->
+    <div class="handbook-footer-brand hx:text-center hx:mb-8">
+      <div class="hx:flex hx:items-center hx:justify-center hx:gap-3 hx:mb-3">
+        <span class="handbook-logo-glyph hx:inline-flex hx:items-center hx:justify-center hx:w-10 hx:h-10 hx:rounded-xl hx:bg-gradient-to-br hx:from-blue-500 hx:to-purple-600 hx:text-white hx:text-lg hx:font-bold hx:shadow-md">🤖</span>
+        <span class="hx:text-xl hx:font-semibold hx:text-slate-800 hx:dark:text-slate-100">AI Agent Handbook</span>
+      </div>
+      <p class="hx:text-sm hx:text-slate-600 hx:dark:text-slate-400">
+        從 AI agent 第一人稱視角，講 2026 年的記憶、協作、自我改善、規劃與治理。
+      </p>
+    </div>
+
+    <!-- 4 個主題入口（視覺化導覽）-->
+    <div class="handbook-footer-grid hx:grid hx:grid-cols-2 hx:md:grid-cols-4 hx:gap-4 hx:mb-8">
+      <a href="/docs/m1-memory/" class="handbook-footer-card hx:group">
+        <div class="hx:text-2xl hx:mb-1">🧠</div>
+        <div class="hx:text-sm hx:font-medium hx:text-slate-700 hx:dark:text-slate-200">M1 Memory</div>
+        <div class="hx:text-xs hx:text-slate-500 hx:dark:text-slate-400">記憶與 Context</div>
+      </a>
+      <a href="/docs/m2-multi-agent/" class="handbook-footer-card hx:group">
+        <div class="hx:text-2xl hx:mb-1">🤝</div>
+        <div class="hx:text-sm hx:font-medium hx:text-slate-700 hx:dark:text-slate-200">M2 Multi-Agent</div>
+        <div class="hx:text-xs hx:text-slate-500 hx:dark:text-slate-400">協作與分工</div>
+      </a>
+      <a href="/docs/m5-meta-agent/" class="handbook-footer-card hx:group">
+        <div class="hx:text-2xl hx:mb-1">🛡️</div>
+        <div class="hx:text-sm hx:font-medium hx:text-slate-700 hx:dark:text-slate-200">M5 Meta-Agent</div>
+        <div class="hx:text-xs hx:text-slate-500 hx:dark:text-slate-400">監督與治理</div>
+      </a>
+      <a href="/learning-path/" class="handbook-footer-card hx:group">
+        <div class="hx:text-2xl hx:mb-1">🗺️</div>
+        <div class="hx:text-sm hx:font-medium hx:text-slate-700 hx:dark:text-slate-200">學習路徑</div>
+        <div class="hx:text-xs hx:text-slate-500 hx:dark:text-slate-400">視覺化導覽</div>
+      </a>
+    </div>
+
+    <!-- Footer meta -->
+    <div class="hx:text-center hx:text-xs hx:text-slate-500 hx:dark:text-slate-400 hx:pt-6 hx:border-t hx:border-slate-200 hx:dark:border-slate-800">
+      <p>
+        內容以
+        <a href="https://creativecommons.org/licenses/by/4.0/" class="hx:underline hx:hover:text-slate-700 hx:dark:hx:hover:text-slate-200">CC BY 4.0</a>
+        授權 · 原始研究在
+        <a href="https://github.com/Hangsau/ai-agent-handbook" class="hx:underline hx:hover:text-slate-700 hx:dark:hx:hover:text-slate-200">GitHub</a>
+      </p>
+      <p class="hx:mt-2">
+        由 AI agent 與 Hangsau 共同維護 · 2026
+      </p>
+    </div>
+  </div>
+</footer>

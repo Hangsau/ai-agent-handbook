@@ -1,0 +1,266 @@
+/* Custom styles — AI Agent Handbook 自己的視覺語言 */
+
+/* Footer 卡片 hover */
+.handbook-footer-card {
+  display: block;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.handbook-footer-card:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(59, 130, 246, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.dark .handbook-footer-card {
+  background: rgba(15, 23, 42, 0.6);
+  border-color: rgba(71, 85, 105, 0.3);
+}
+
+.dark .handbook-footer-card:hover {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(96, 165, 250, 0.4);
+}
+
+/* 章節導覽卡片（在 M 章節開頭） */
+.handbook-chapter-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(239, 246, 255, 0.5) 0%, rgba(243, 232, 255, 0.5) 100%);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(191, 219, 254, 0.5);
+}
+
+.dark .handbook-chapter-map {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.5) 0%, rgba(30, 27, 75, 0.5) 100%);
+  border-color: rgba(71, 85, 105, 0.5);
+}
+
+.handbook-chapter-map-title {
+  grid-column: 1 / -1;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(71, 85, 105);
+  margin-bottom: 0.5rem;
+}
+
+.dark .handbook-chapter-map-title {
+  color: rgb(148, 163, 184);
+}
+
+.handbook-chapter-map-item {
+  display: block;
+  padding: 0.625rem 0.75rem;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: rgb(51, 65, 85);
+  font-size: 0.8125rem;
+  transition: all 0.15s ease;
+}
+
+.handbook-chapter-map-item:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.4);
+  color: rgb(29, 78, 216);
+  transform: translateX(2px);
+}
+
+.dark .handbook-chapter-map-item {
+  background: rgba(30, 41, 59, 0.6);
+  color: rgb(203, 213, 225);
+  border-color: rgba(71, 85, 105, 0.3);
+}
+
+.dark .handbook-chapter-map-item:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(96, 165, 250, 0.4);
+  color: rgb(147, 197, 253);
+}
+
+/* Mermaid 圖的視覺增強（保持 hextra 預設但加 padding） */
+.mermaid {
+  padding: 1rem;
+  background: rgba(248, 250, 252, 0.5);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  margin: 1rem 0;
+}
+
+.dark .mermaid {
+  background: rgba(15, 23, 42, 0.5);
+  border-color: rgba(51, 65, 85, 0.5);
+}
+
+/* 章節 details — 大型、視覺明顯、可摺疊 */
+.handbook-chapter-details {
+  margin: 1.5rem 0;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(248, 250, 252, 0.5);
+  padding: 0.25rem 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.dark .handbook-chapter-details {
+  background: rgba(15, 23, 42, 0.4);
+  border-color: rgba(71, 85, 105, 0.3);
+}
+
+.handbook-chapter-details:hover {
+  border-color: rgba(59, 130, 246, 0.3);
+  background: rgba(239, 246, 255, 0.5);
+}
+
+.dark .handbook-chapter-details:hover {
+  background: rgba(30, 41, 59, 0.5);
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+.handbook-chapter-details > summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: rgb(30, 64, 175);
+  padding: 0.875rem 0.75rem;
+  list-style: none;
+  position: relative;
+  border-radius: 0.5rem;
+  transition: background 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.handbook-chapter-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.handbook-chapter-details > summary::before {
+  content: "▸";
+  display: inline-block;
+  font-size: 0.875rem;
+  color: rgb(59, 130, 246);
+  transition: transform 0.2s ease;
+}
+
+.handbook-chapter-details[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+.dark .handbook-chapter-details > summary {
+  color: rgb(147, 197, 253);
+}
+
+.dark .handbook-chapter-details > summary::before {
+  color: rgb(96, 165, 250);
+}
+
+.handbook-chapter-details[open] {
+  background: rgba(239, 246, 255, 0.6);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.dark .handbook-chapter-details[open] {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+.handbook-chapter-details[open] > summary {
+  color: rgb(29, 78, 216);
+  margin-bottom: 0.5rem;
+}
+
+.dark .handbook-chapter-details[open] > summary {
+  color: rgb(96, 165, 250);
+}
+
+.handbook-chapter-details > summary:hover {
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.dark .handbook-chapter-details > summary:hover {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+/* 章節地圖章節入口 */
+.handbook-chapter-toc {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.625rem;
+  margin: 1.5rem 0;
+}
+
+.handbook-chapter-toc-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: rgb(51, 65, 85);
+  transition: all 0.15s ease;
+}
+
+.handbook-chapter-toc-item:hover {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dark .handbook-chapter-toc-item {
+  background: rgba(30, 41, 59, 0.5);
+  color: rgb(203, 213, 225);
+  border-color: rgba(71, 85, 105, 0.3);
+}
+
+.dark .handbook-chapter-toc-item:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(96, 165, 250, 0.4);
+}
+
+.handbook-chapter-toc-item-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgb(59, 130, 246);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dark .handbook-chapter-toc-item-num {
+  color: rgb(96, 165, 250);
+}
+
+.handbook-chapter-toc-item-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+}
+
+.dark .handbook-chapter-toc-item-title {
+  color: rgb(241, 245, 249);
+}
+
+.handbook-chapter-toc-item-desc {
+  font-size: 0.8125rem;
+  color: rgb(100, 116, 139);
+  line-height: 1.4;
+}
+
+.dark .handbook-chapter-toc-item-desc {
+  color: rgb(148, 163, 184);
+}

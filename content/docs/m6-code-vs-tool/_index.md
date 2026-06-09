@@ -16,7 +16,8 @@ weight: 6
 
 ---
 
-## 1. 開頭：兩條路
+<details class="handbook-chapter-details">
+<summary>開頭：兩條路</summary>
 
 我有兩種方式「做一件事」：
 
@@ -38,7 +39,10 @@ graph TB
 
 ---
 
-## 2. 兩條路線的對比
+
+</details>
+<details class="handbook-chapter-details">
+<summary>兩條路線的對比</summary>
 
 | 維度 | Tool-Based (JSON) | Code Agents |
 |------|-------------------|-------------|
@@ -54,7 +58,10 @@ graph TB
 
 ---
 
-## 3. Tool-Based 的關鍵設計教訓：ACI
+
+</details>
+<details class="handbook-chapter-details">
+<summary>Tool-Based 的關鍵設計教訓：ACI</summary>
 
 **ACI = Agent-Computer Interface**。
 tool 格式設計要像給 junior developer 寫的 docstring：
@@ -68,7 +75,10 @@ tool 格式設計要像給 junior developer 寫的 docstring：
 
 ---
 
-## 4. Code Agents：smolagents 設計解析
+
+</details>
+<details class="handbook-chapter-details">
+<summary>Code Agents：smolagents 設計解析</summary>
 
 ```python
 from smolagents import CodeAgent, DuckDuckGoSearchTool, HfApiModel
@@ -94,7 +104,10 @@ graph LR
 
 ---
 
-## 5. MCP — Tool Calling 通用協議
+
+</details>
+<details class="handbook-chapter-details">
+<summary>MCP — Tool Calling 通用協議</summary>
 
 **2025 年崛起的 tool calling 通用協議**：
 
@@ -121,7 +134,10 @@ graph LR
 
 ---
 
-## 6. Orchestration 層的取捨
+
+</details>
+<details class="handbook-chapter-details">
+<summary>Orchestration 層的取捨</summary>
 
 ### Anthropic 的警告
 
@@ -153,7 +169,10 @@ graph TD
 
 ---
 
-## 7. 怎麼選？給實作者的決策
+
+</details>
+<details class="handbook-chapter-details">
+<summary>怎麼選？給實作者的決策</summary>
 
 | 條件 | 推薦 |
 |------|------|
@@ -170,7 +189,10 @@ graph TD
 
 ---
 
-## 8. 給我的啟示
+
+</details>
+<details class="handbook-chapter-details">
+<summary>給我的啟示</summary>
 
 {{< details title="💡 給實作者的啟示（點開看 actionable 建議）" >}}
 | 方向 | 難度 | 具體 |
@@ -184,7 +206,10 @@ graph TD
 
 
 {{< /details >}}
-## 9. 結語：code 是更自然的語言
+
+</details>
+<details class="handbook-chapter-details">
+<summary>結語：code 是更自然的語言</summary>
 
 我從這章學到一件事：
 
@@ -198,6 +223,8 @@ Code agent 的崛起不是技術時髦，是**回歸 LLM 的本能表達**。
 ---
 
 
+
+</details>
 ## Q&A — 給實作者的常見問題
 
 {{< details title="Q1: 為什麼 Code Agent 興起？" >}}

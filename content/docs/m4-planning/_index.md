@@ -17,7 +17,8 @@ weight: 4
 
 ---
 
-## 1. 開頭：ReAct 怎麼不夠用了
+<details class="handbook-chapter-details">
+<summary>開頭：ReAct 怎麼不夠用了</summary>
 
 ReAct（Reason + Act loop）自 2022 年以來是 agent 設計的預設骨架。
 簡單、有效、易教。
@@ -41,7 +42,10 @@ graph TD
 
 ---
 
-## 2. 2026 四種主流規劃架構
+
+</details>
+<details class="handbook-chapter-details">
+<summary>2026 四種主流規劃架構</summary>
 
 | 維度 | ReAct (2022) | Graph Planning | Plan-First/Judge | Primitive Induction | Self-Healing |
 |------|--------------|----------------|------------------|--------------------|--------------|
@@ -52,7 +56,10 @@ graph TD
 
 ---
 
-## 3. Graph Planning — 用 Type 拆解混亂
+
+</details>
+<details class="handbook-chapter-details">
+<summary>Graph Planning — 用 Type 拆解混亂</summary>
 
 **問題**：biomedical 工具有數百個異質 SDK，flat prompt 塞不下。
 
@@ -82,7 +89,10 @@ graph LR
 
 ---
 
-## 4. Plan-First, Judge Later — 先想清楚再評分
+
+</details>
+<details class="handbook-chapter-details">
+<summary>Plan-First, Judge Later — 先想清楚再評分</summary>
 
 **靈感**：DMAIC 品質管理框架（Define-Measure-Analyze-Improve-Control）。
 
@@ -103,7 +113,10 @@ flowchart LR
 
 ---
 
-## 5. Reasoning Primitive Induction — 把套路凝固 ⭐
+
+</details>
+<details class="handbook-chapter-details">
+<summary>Reasoning Primitive Induction — 把套路凝固 ⭐</summary>
 
 **問題**：ReAct 在 scratchpad 裡重複發明同樣的 reasoning 套路，但這些套路**沒被凝固**成可重用單元。
 
@@ -140,7 +153,10 @@ flowchart LR
 
 ---
 
-## 6. Self-Healing Orchestrator — 把 reliability 量化 ⭐
+
+</details>
+<details class="handbook-chapter-details">
+<summary>Self-Healing Orchestrator — 把 reliability 量化 ⭐</summary>
 
 **核心洞見**：把 reliability 視為 **bounded runtime control problem**。
 
@@ -171,7 +187,10 @@ flowchart LR
 
 ---
 
-## 7. Harness + Middleware — 業界解法
+
+</details>
+<details class="handbook-chapter-details">
+<summary>Harness + Middleware — 業界解法</summary>
 
 LangChain 2026 Q2 提出的設計：
 
@@ -201,7 +220,10 @@ sequenceDiagram
 
 ---
 
-## 8. 真正的普適進步
+
+</details>
+<details class="handbook-chapter-details">
+<summary>真正的普適進步</summary>
 
 > ReAct 不是過時了。對短任務（≤5 步、≤10 工具）ReAct 仍是最簡單且可維護的方案。學術界的新方法是為 **scale** 設計的 — 但 scale 是少數任務才需要。
 
@@ -212,7 +234,10 @@ sequenceDiagram
 
 ---
 
-## 9. 給我的啟示
+
+</details>
+<details class="handbook-chapter-details">
+<summary>給我的啟示</summary>
 
 {{< details title="💡 給實作者的啟示（點開看 actionable 建議）" >}}
 按可實作性排序：
@@ -234,7 +259,10 @@ sequenceDiagram
 
 
 {{< /details >}}
-## 10. 真正瓶頸
+
+</details>
+<details class="handbook-chapter-details">
+<summary>真正瓶頸</summary>
 
 > 「沒有 traces 就沒辦法 induction / 沒辦法 identify failure classes」
 
@@ -243,7 +271,10 @@ sequenceDiagram
 
 ---
 
-## 11. 結語：規劃的本質
+
+</details>
+<details class="handbook-chapter-details">
+<summary>結語：規劃的本質</summary>
 
 我從這章學到一件事：
 
@@ -255,6 +286,8 @@ ReAct 想到太多廢的事。Primitive Induction 把高頻套路凝固。Self-H
 ---
 
 
+
+</details>
 ## Q&A — 給實作者的常見問題
 
 {{< details title="Q1: ReAct 是不是過時了？" >}}

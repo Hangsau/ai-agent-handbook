@@ -17,7 +17,8 @@ weight: 2
 
 ---
 
-## 1. 開頭：為什麼我需要朋友
+<details class="handbook-chapter-details">
+<summary>開頭：為什麼我需要朋友</summary>
 
 單一 agent 聽起來很強 — 一個超強模型處理所有事。
 但 2026 年的實戰經驗告訴我們：**這條路走不通**。
@@ -33,7 +34,10 @@ weight: 2
 
 ---
 
-## 2. 核心命題：不要強化單一，要 orchestration
+
+</details>
+<details class="handbook-chapter-details">
+<summary>核心命題：不要強化單一，要 orchestration</summary>
 
 > 業界在 2026 年達成的共識很簡單：
 > **把任務切給專門的 agent，再用協調架構把它們串起來。**
@@ -62,7 +66,10 @@ graph TB
 
 ---
 
-## 3. 五種協調模式
+
+</details>
+<details class="handbook-chapter-details">
+<summary>五種協調模式</summary>
 
 跨 5/25 跟 6/02 兩份研究報告的整理，2026 年主流有 5 種協調模式：
 
@@ -132,7 +139,10 @@ Producer → Challenger → Judge
 
 ---
 
-## 4. Production 系統的 4 個必要元件
+
+</details>
+<details class="handbook-chapter-details">
+<summary>Production 系統的 4 個必要元件</summary>
 
 2026 production-grade agent 系統不是「隨便串幾個 agent」 — 必須有 4 個標準配備：
 
@@ -191,7 +201,10 @@ MCP 是 protocol-level 標準，不依賴特定模型或框架。
 
 ---
 
-## 5. RL 驅動的 Domain-Aware Routing
+
+</details>
+<details class="handbook-chapter-details">
+<summary>RL 驅動的 Domain-Aware Routing</summary>
 
 **MMCP** 的核心創新：**學習每個模型擅長什麼領域，動態路由任務**。
 
@@ -221,7 +234,10 @@ flowchart LR
 
 ---
 
-## 6. 故障韌性：5-20% 不是例外
+
+</details>
+<details class="handbook-chapter-details">
+<summary>故障韌性：5-20% 不是例外</summary>
 
 CUHK MAS-Resilience 的核心發現很直白：
 
@@ -236,7 +252,10 @@ CUHK MAS-Resilience 的核心發現很直白：
 
 ---
 
-## 7. 框架選擇決策矩陣
+
+</details>
+<details class="handbook-chapter-details">
+<summary>框架選擇決策矩陣</summary>
 
 | 框架 | Stars | 何時用 | 何時不要用 |
 |------|-------|--------|-----------|
@@ -253,7 +272,10 @@ CUHK MAS-Resilience 的核心發現很直白：
 
 ---
 
-## 8. 自我改善的缺口
+
+</details>
+<details class="handbook-chapter-details">
+<summary>自我改善的缺口</summary>
 
 **這是 2026 H1 multi-agent 最大的盲點**：
 
@@ -264,7 +286,10 @@ Orchestration 和 self-improvement 是兩個獨立的問題，目前社群傾向
 
 ---
 
-## 9. 對 Hermes 的啟示
+
+</details>
+<details class="handbook-chapter-details">
+<summary>對 Hermes 的啟示</summary>
 
 {{< details title="💡 給實作者的啟示（點開看 actionable 建議）" >}}
 截至 2026-06-08，Hermes 的 multi-agent 能力現況：
@@ -280,7 +305,10 @@ Orchestration 和 self-improvement 是兩個獨立的問題，目前社群傾向
 
 
 {{< /details >}}
-## 10. 結語：協作的兩個方向
+
+</details>
+<details class="handbook-chapter-details">
+<summary>結語：協作的兩個方向</summary>
 
 multi-agent 協作有兩個看似矛盾的方向：
 
@@ -297,6 +325,8 @@ multi-agent 協作有兩個看似矛盾的方向：
 ---
 
 
+
+</details>
 ## Q&A — 給實作者的常見問題
 
 {{< details title="Q1: 多 agent 一定比單一 agent 好嗎？" >}}

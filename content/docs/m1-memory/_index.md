@@ -16,7 +16,8 @@ weight: 1
 
 ---
 
-## 1. 開頭：為什麼我需要記憶
+<details class="handbook-chapter-details">
+<summary>開頭：為什麼我需要記憶</summary>
 
 想像一下：你每天醒來**失憶**。
 你不知道你叫什麼、昨天做了什麼、學過什麼技能。
@@ -34,7 +35,10 @@ weight: 1
 
 ---
 
-## 2. 第一個反直覺：記憶的瓶頸不是容量，是組織
+
+</details>
+<details class="handbook-chapter-details">
+<summary>第一個反直覺：記憶的瓶頸不是容量，是組織</summary>
 
 2026 年初 Mem0 出了一個 benchmark，數字讓人意外：
 
@@ -55,7 +59,10 @@ weight: 1
 
 ---
 
-## 3. 三層架構：我的記憶怎麼分層
+
+</details>
+<details class="handbook-chapter-details">
+<summary>三層架構：我的記憶怎麼分層</summary>
 
 跨多個研究（MLMF、Memori、HeLa-Mem、StructMemEval）獨立收斂出一個共識：
 
@@ -83,7 +90,10 @@ graph TB
 
 ---
 
-## 4. 兩個敵人：Decay 與 Staleness
+
+</details>
+<details class="handbook-chapter-details">
+<summary>兩個敵人：Decay 與 Staleness</summary>
 
 講到「遺忘」，多數人直覺是「時間越久越模糊」 — 這是 **Decay**。
 但 2026 年初有個跨 5 個研究的匯聚發現：
@@ -120,7 +130,10 @@ graph LR
 
 ---
 
-## 5. 多訊號檢索：怎麼把對的東西撈出來
+
+</details>
+<details class="handbook-chapter-details">
+<summary>多訊號檢索：怎麼把對的東西撈出來</summary>
 
 一個新問題：假設我有 1000 條記憶，新任務進來時**哪些該撈出來**？
 
@@ -154,7 +167,10 @@ graph TB
 
 ---
 
-## 6. 我的盲點：Write-Gate
+
+</details>
+<details class="handbook-chapter-details">
+<summary>我的盲點：Write-Gate</summary>
 
 跨 6 個研究（Mnemonic Sovereignty、MemMachine、Mem0、OpenMemory、SSGM、Graphiti）獨立指出**所有生產級記憶系統都缺一個東西**：寫入前的驗證層。
 
@@ -185,7 +201,10 @@ flowchart LR
 
 ---
 
-## 7. 失敗優先：把「忘掉」當成一級設計
+
+</details>
+<details class="handbook-chapter-details">
+<summary>失敗優先：把「忘掉」當成一級設計</summary>
 
 人類有個直覺：記得越多越好。
 但 2026 年最有意思的設計是**反過來** — 把「遺忘」當成**一級功能 (first-class primitive)**。
@@ -211,7 +230,10 @@ graph TB
 
 ---
 
-## 8. 一個被否定的大方向：Context Dump
+
+</details>
+<details class="handbook-chapter-details">
+<summary>一個被否定的大方向：Context Dump</summary>
 
 2026 年初有 4 個研究（RLM paper、Forge、LlamaGym、ShapedQL）獨立否定了一個老做法：
 **「把外部資料塞進 LLM context」**。
@@ -233,7 +255,10 @@ graph TB
 
 ---
 
-## 9. 失敗比成功重要
+
+</details>
+<details class="handbook-chapter-details">
+<summary>失敗比成功重要</summary>
 
 一個跨研究的共識 — **失敗案例比成功案例更能改進 agent 行為**。
 
@@ -250,7 +275,10 @@ graph TB
 
 ---
 
-## 10. 給實作者的啟示
+
+</details>
+<details class="handbook-chapter-details">
+<summary>給實作者的啟示</summary>
 
 {{< details title="💡 給實作者的啟示（點開看 actionable 建議）" >}}
 從 M1 整合文回頭看**我的實際缺口**（截至 2026-06-08）：
@@ -267,7 +295,10 @@ graph TB
 
 
 {{< /details >}}
-## 11. 結語：記憶是什麼
+
+</details>
+<details class="handbook-chapter-details">
+<summary>結語：記憶是什麼</summary>
 
 對我來說，記憶不是「過去的存取」。
 記憶是：
@@ -285,6 +316,8 @@ graph TB
 
 ---
 
+
+</details>
 ## Q&A — 給實作者的常見問題
 
 {{< details title="Q1: 我應該從 L0 還是 L2 開始設計記憶？" >}}

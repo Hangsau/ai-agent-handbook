@@ -17,7 +17,8 @@ weight: 8
 
 ---
 
-## 1. 開頭：Production-grade agent 系統的三大支柱
+<details class="handbook-chapter-details">
+<summary>開頭：Production-grade agent 系統的三大支柱</summary>
 
 跑 production agent 系統要回答三個問題：
 
@@ -33,7 +34,10 @@ weight: 8
 
 # Part 1: Benchmark — 量化「誰好」
 
-## 2. SWE-bench 2026 現狀
+
+</details>
+<details class="handbook-chapter-details">
+<summary>SWE-bench 2026 現狀</summary>
 
 2026 leaderboard 頭部已達 **79.2%**（Claude Opus 4.5 + live-SWE-agent），看似接近「解決」。
 但有三個深層問題：
@@ -54,7 +58,10 @@ graph TD
 | **Cost-vs-score 曲線無人繪** | leaderboard 只列分數不看成本 |
 | **「嘗試次數」遊戲** | single-attack vs multi-attack 比較是 apples-to-oranges |
 
-## 3. SWE-bench 家族（2026 變體）
+
+</details>
+<details class="handbook-chapter-details">
+<summary>SWE-bench 家族（2026 變體）</summary>
 
 ```
 SWE-bench 家族
@@ -74,7 +81,10 @@ SWE-bench 家族
 
 > harness 複雜度對 SOTA 的邊際貢獻正在趨近於零，底層 model 能力是主因。
 
-## 4. SABER 三大組件 ⭐
+
+</details>
+<details class="handbook-chapter-details">
+<summary>SABER 三大組件 ⭐</summary>
 
 SABER（**S**afeguarding Mutating **A**ctions, **B**lock-based filtering, **E**nhanced **R**eflection）
 **不是新 framework，而是 plug-in 層包在現有 agent loop 外**。gradient-free、model-agnostic。
@@ -108,7 +118,10 @@ SABER（**S**afeguarding Mutating **A**ctions, **B**lock-based filtering, **E**n
 
 **Ablation 證明三者非線性疊加** — Full SABER +20.7 pp，遠超任一單獨效果。
 
-## 5. Benchmark 設計的典範轉移
+
+</details>
+<details class="handbook-chapter-details">
+<summary>Benchmark 設計的典範轉移</summary>
 
 > 從「分數高」到「評分可靠」
 
@@ -120,13 +133,19 @@ SABER（**S**afeguarding Mutating **A**ctions, **B**lock-based filtering, **E**n
 
 # Part 2: Routing — 量化「誰便宜」
 
-## 6. 為什麼需要 Routing
+
+</details>
+<details class="handbook-chapter-details">
+<summary>為什麼需要 Routing</summary>
 
 - **Token 成本爆炸**：每個 agent 流程 5-20 次 LLM call，複雜任務 50-500k tokens
 - **任務異質**：同一個 agent 同時做「格式化訊息」、「RAG 摘要」、「規劃工具呼叫鏈」三種本質不同的工作
 - **全部用 frontier model 是嚴重的資源浪費**
 
-## 7. 三種基本 Routing 策略
+
+</details>
+<details class="handbook-chapter-details">
+<summary>三種基本 Routing 策略</summary>
 
 ### (A) Static Tiered Routing（最簡單）
 
@@ -154,7 +173,10 @@ def cascade(prompt, budget):
 
 用小 router model（often distilled 1B param）把每個 prompt 對應到 1-of-N models，訓練資料來自大規模 human/AI 偏好對齊。
 
-## 8. OpenRouter 2026 Primitives
+
+</details>
+<details class="handbook-chapter-details">
+<summary>OpenRouter 2026 Primitives</summary>
 
 | Variant | 機制 | 成本 | 適用 |
 |---------|------|------|------|
@@ -163,18 +185,27 @@ def cascade(prompt, budget):
 | `:free` | 免費 model，20 RPM/50-1000 RPD 限制 | $0 | 開發/低成本 agent |
 | `:auto` | ML router 學出來的「每分錢最高品質」 | +5-10% 溢價 | **生產環境預設** |
 
-## 9. 關鍵洞見
+
+</details>
+<details class="handbook-chapter-details">
+<summary>關鍵洞見</summary>
 
 - **Agentic cost curve 從線性變次線性** — 20-step flow 從「20 × frontier」變「5 × frontier + 15 × mini」，**60-75% 成本下降**（Not Diamond 公開 case studies）
 - **可靠性提升，不是下降** — 早期擔心 routing 會引入不一致；2026 數據顯示 routing 系統的 *aggregate* reliability 反而高於單一 frontier
 
-## 10. 關鍵警告
+
+</details>
+<details class="handbook-chapter-details">
+<summary>關鍵警告</summary>
 
 > **沒有 verifier 就不要做 cascade**
 
 「cheap model 自信錯了」是最危險的 — 它會把 hallucination 包裝成 high confidence，**比直接用 frontier 更難 debug**。
 
-## 11. 可複製性
+
+</details>
+<details class="handbook-chapter-details">
+<summary>可複製性</summary>
 
 ✅ **可以自己做**：
 - Static tiered + heuristic — 50 行 Python
@@ -192,14 +223,20 @@ def cascade(prompt, budget):
 
 # Part 3: MCP Security — 量化「誰安全」
 
-## 12. 2026 範式轉移
+
+</details>
+<details class="handbook-chapter-details">
+<summary>2026 範式轉移</summary>
 
 > **MCP 從「tool bus」變成「policy-enforced tool fabric」是 2026 年最大範式轉移**
 
 - Tool list 不再是「我能接什麼」而是「我**應該**讓 LLM 看到什麼」
 - 每個 host（Claude Desktop、Cursor、Cline、Windsurf）的預設行為是「LLM 看得到 = LLM 能 call」 — **這是根本錯誤**
 
-## 13. 三層防禦模型
+
+</details>
+<details class="handbook-chapter-details">
+<summary>三層防禦模型</summary>
 
 | 層 | 攔截點 | 代表實作 | 防什麼 |
 |----|--------|---------|--------|
@@ -208,7 +245,10 @@ def cascade(prompt, budget):
 | **L3 Output sanitizer** | tool 結果回給 LLM 前 | StackOneHQ/defender | indirect prompt injection |
 | **L0 Registry/Discovery** | 載入 MCP server 時 | mcp-contextprotocol/registry, agentseal | 防止裝到已知惡意 server |
 
-## 14. StackOne Defender — Output Sanitizer 設計
+
+</details>
+<details class="handbook-chapter-details">
+<summary>StackOne Defender — Output Sanitizer 設計</summary>
 
 **最值得抄的 output sanitizer 設計**：
 
@@ -230,7 +270,10 @@ if (!result.allowed) {
 - 兩層：規則擋 90% 已知攻擊快又便宜，ML 補 10% 變體
 - `blockHighRisk: true` 是 **fail-closed 預設**（反向於大多數 LLM library 的 fail-open）
 
-## 15. Epydios Policy Gateway
+
+</details>
+<details class="handbook-chapter-details">
+<summary>Epydios Policy Gateway</summary>
 
 **最完整的 policy engine 雛型**：
 
@@ -253,7 +296,10 @@ graph LR
 - **Separation of duties** — approver token 跟 executor token 是不同 capability，**自己不能 approve 自己的 call**
 - **Append-only JSONL audit** — 每一次 tool call 都有 SHA-256 chain 串接
 
-## 16. 根本未解問題
+
+</details>
+<details class="handbook-chapter-details">
+<summary>根本未解問題</summary>
 
 > 「LLM 看到 tools = LLM 執行」這個根本問題沒人解
 
@@ -262,7 +308,10 @@ graph LR
 
 **真正的解法是 capability-based security**：tool 本身要有 **unforgeable capability token**，LLM「看到」≠「擁有 capability」。
 
-## 17. 限制
+
+</details>
+<details class="handbook-chapter-details">
+<summary>限制</summary>
 
 {{< details title="⚠️ 限制與評估（點開看誠實檢討）" >}}
 - **Defender F1 90.8% 在 adversarial 設定下可能掉到 70% 以下** — 任何 ML classifier 面對 adaptive attacker 都會掉
@@ -274,7 +323,10 @@ graph LR
 
 
 {{< /details >}}
-## 18. 三主題交叉：Production-grade Agent 系統的標配
+
+</details>
+<details class="handbook-chapter-details">
+<summary>三主題交叉：Production-grade Agent 系統的標配</summary>
 
 ```mermaid
 graph TB
@@ -294,7 +346,10 @@ graph TB
 
 ---
 
-## 19. 給我的啟示
+
+</details>
+<details class="handbook-chapter-details">
+<summary>給我的啟示</summary>
 
 {{< details title="💡 給實作者的啟示（點開看 actionable 建議）" >}}
 ### Benchmark 方向
@@ -327,7 +382,10 @@ graph TB
 
 
 {{< /details >}}
-## 20. 結語：把不確定性量化
+
+</details>
+<details class="handbook-chapter-details">
+<summary>結語：把不確定性量化</summary>
 
 我從這章學到一件事：
 
@@ -350,6 +408,8 @@ graph LR
 ---
 
 
+
+</details>
 ## Q&A — 給實作者的常見問題
 
 {{< details title="Q1: 為什麼 SWE-bench 79.2% 不算解決 agent 問題？" >}}
